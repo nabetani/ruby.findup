@@ -1,8 +1,9 @@
 require 'bundler'
+require './findup'
 Bundler.require
 
 
-%w( S0 S1 S2 ).each do |input|
+%w( S0 S1 S2 S3 S4 ).each do |input|
   Benchmark.driver do |x|
     x.prelude( File.open("findup.rb"){ |f| f.read } )
     %w(
@@ -14,4 +15,7 @@ Bundler.require
       x.report( name, "#{name}(#{input})" )
     end
   end
+  i = eval(input)
+  puts( "%s: size=%d, ratio=%.0f%%" % [ input, i.size, sort_cons(i).size*100.0 / i.size ] )
+  puts "-"*10
 end
