@@ -1,7 +1,9 @@
 
-S0 = Array.new(1000){|x| x % 100 }
-S1 = Array.new(10000){|x| x % 1000 }
-S2 = Array.new(10000){|x| x % 9000 }
+S0 = Array.new(10){|x| x % 3 }
+S1 = Array.new(100){|x| x % 10 }
+S2 = Array.new(1000){|x| x % 100 }
+S3 = Array.new(10000){|x| x % 1000 }
+S4 = Array.new(10000){|x| x % 9000 }
 
 def select_uniq(a)
   a.select { |v| a.count(v) > 1 }.uniq
