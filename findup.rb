@@ -24,6 +24,10 @@ def sort_cons(a)
   }
 end
 
+def group_by_select(a)
+  a.group_by(&:itself).select { |_, v| v.size > 1 }.keys
+end
+
 if __FILE__==$PROGRAM_NAME
   (1..10).each do |len|
     s = Array.new(len){|x| x%10 }
@@ -31,7 +35,8 @@ if __FILE__==$PROGRAM_NAME
       select_uniq(s), 
       uniq_select(s),
       uniq_select_hash(s),
-      sort_cons(s)
+      sort_cons(s),
+      group_by_select(s)
     ].map(&:sort)
     p(a) unless a.uniq.size==1
   end

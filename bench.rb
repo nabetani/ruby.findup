@@ -11,6 +11,7 @@ Bundler.require
       uniq_select
       uniq_select_hash
       sort_cons
+      group_by_select
     ).each do |name|
       x.report( name, "#{name}(#{input})" )
     end
